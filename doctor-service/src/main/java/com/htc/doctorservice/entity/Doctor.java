@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "doctor_service")
 public class Doctor implements Serializable {
@@ -20,6 +22,7 @@ public class Doctor implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	//@JsonIgnore
 	private long doctorId;
 	private String doctorName;
 	private String specialization;
@@ -31,9 +34,8 @@ public class Doctor implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Doctor(long doctorId, String doctorName, String specialization, int experiene, String mobile) {
+	public Doctor(String doctorName, String specialization, int experiene, String mobile) {
 		super();
-		this.doctorId = doctorId;
 		this.doctorName = doctorName;
 		this.specialization = specialization;
 		this.experiene = experiene;

@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.htc.doctorservice.dao.DoctorRepository;
+import com.htc.doctorservice.dto.DoctorDTO;
 import com.htc.doctorservice.entity.Doctor;
 
 @RestController
@@ -34,8 +35,9 @@ public class DoctorController {
     }
 	
 	@PostMapping(value = "doctors", consumes = MediaType.APPLICATION_JSON_VALUE)
-	public Doctor createDoctor(@Valid @RequestBody Doctor doctor) {
-	      System.out.println("Created Doctor: " + doctor.getDoctorName() + "...");
+	public Doctor createDoctor(@Valid @RequestBody DoctorDTO doc) {
+	      System.out.println("Creating Doctor: " + doc.getDoctorName() + "...");
+	      Doctor doctor=new Doctor(doc.getDoctorName(), doc.getSpecialization(), doc.getExperiene(), doc.getMobile());
 	      return repository.save(doctor);
 	}
 

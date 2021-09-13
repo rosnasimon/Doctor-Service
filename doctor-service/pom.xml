@@ -12,7 +12,7 @@
 	<artifactId>doctor-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>doctor-service</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Project for handling doctor service</description>
 	<properties>
 		<java.version>1.8</java.version>
 		<spring-cloud.version>2020.0.3</spring-cloud.version>
